@@ -2,8 +2,8 @@
 <html lang="en">
 <head>
 	<meta charset="utf-8">
-	<title>Test — Mike's Blog</title>
-	<meta name="description" content="Title: Test; Date: 2019-03-27; Author: Michael Clayden">
+	<title>SAT Analysis Part 1 — Mike's Blog</title>
+	<meta name="description" content="Title: SAT Analysis Part 1; Date: 2019-03-28; Author: Michael Clayden">
 	<meta name="author" content="Michael Clayden">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<!-- Le HTML5 shim, for IE6-8 support of HTML elements -->
@@ -26,11 +26,11 @@
 		<div class="col-md-8 col-md-offset-2">
 <div class="article" itemscope itemtype="http://schema.org/BlogPosting">
 	<div class="text-center article-header">
-		<h1 itemprop="name headline" class="article-title">Test</h1>
+		<h1 itemprop="name headline" class="article-title">SAT Analysis Part 1</h1>
 		<span itemprop="author" itemscope itemtype="http://schema.org/Person">
 			<h4 itemprop="name">Michael Clayden</h4>
 		</span>
-		<time datetime="2019-03-27T19:23:00+11:00" itemprop="datePublished">Wed 27 March 2019</time>
+		<time datetime="2019-03-28T22:37:00+11:00" itemprop="datePublished">Thu 28 March 2019</time>
 	</div>
 	<div>
 		Category:
@@ -42,7 +42,16 @@
 	<div>
 		Tags:
 		<span itemprop="keywords">
-			<a href="https://ArchangelEkim.github.io/tag/python-firsts.html" rel="tag">python firsts</a>
+			<a href="https://ArchangelEkim.github.io/tag/python-firsts.html" rel="tag">Python Firsts</a>
+		</span>
+		<span itemprop="keywords">
+			<a href="https://ArchangelEkim.github.io/tag/data-science.html" rel="tag">Data Science</a>
+		</span>
+		<span itemprop="keywords">
+			<a href="https://ArchangelEkim.github.io/tag/sat.html" rel="tag">SAT</a>
+		</span>
+		<span itemprop="keywords">
+			<a href="https://ArchangelEkim.github.io/tag/visualisation.html" rel="tag">Visualisation</a>
 		</span>
 	</div>
 	<div itemprop="articleBody" class="article-body"><style type="text/css">/*!
@@ -1199,7 +1208,15 @@ h6:hover .anchor-link {
 <div class="prompt input_prompt">In&nbsp;[1]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="kn">import</span> <span class="nn">pandas</span>
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+
+<span class="n">files</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;2010_ap.csv&quot;</span><span class="p">,</span><span class="s2">&quot;class_size.csv&quot;</span><span class="p">,</span><span class="s2">&quot;hs_directory.csv&quot;</span><span class="p">,</span><span class="s2">&quot;demographics.csv&quot;</span><span class="p">,</span><span class="s2">&quot;graduation.csv&quot;</span><span class="p">,</span><span class="s2">&quot;math_test_results.csv&quot;</span><span class="p">,</span><span class="s2">&quot;sat_results.csv&quot;</span><span class="p">]</span>
+
+<span class="n">data</span> <span class="o">=</span> <span class="p">{}</span>
+<span class="k">for</span> <span class="n">f</span> <span class="ow">in</span> <span class="n">files</span><span class="p">:</span>
+    <span class="n">d</span> <span class="o">=</span> <span class="n">pandas</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s2">&quot;schools/</span><span class="si">{0}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">f</span><span class="p">))</span>
+    <span class="n">data</span><span class="p">[</span><span class="n">f</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s2">&quot;.csv&quot;</span><span class="p">,</span><span class="s2">&quot;&quot;</span><span class="p">)]</span> <span class="o">=</span> <span class="n">d</span>
 </pre></div>
 
     </div>
@@ -1212,20 +1229,9 @@ h6:hover .anchor-link {
 <div class="prompt input_prompt">In&nbsp;[2]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="o">%</span><span class="k">matplotlib</span> inline
-</pre></div>
-
-    </div>
-</div>
-</div>
-
-</div>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In&nbsp;[3]:</div>
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">plt</span><span class="o">.</span><span class="n">hist</span><span class="p">([</span><span class="mi">2</span><span class="p">,</span><span class="mi">4</span><span class="p">,</span><span class="mi">5</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">5</span><span class="p">,</span><span class="mi">8</span><span class="p">,</span><span class="mi">9</span><span class="p">,</span><span class="mi">4</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">4</span><span class="p">,</span><span class="mi">7</span><span class="p">,</span><span class="mi">9</span><span class="p">,</span><span class="mi">5</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">5</span><span class="p">,</span><span class="mi">5</span><span class="p">,</span><span class="mi">6</span><span class="p">,</span><span class="mi">5</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">4</span><span class="p">,</span><span class="mi">5</span><span class="p">,</span><span class="mi">7</span><span class="p">,</span><span class="mi">8</span><span class="p">,</span><span class="mi">9</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">7</span><span class="p">,</span><span class="mi">5</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">4</span><span class="p">,</span><span class="mi">5</span><span class="p">,</span><span class="mi">6</span><span class="p">,</span><span class="mi">7</span><span class="p">,</span><span class="mi">8</span><span class="p">,</span><span class="mi">8</span><span class="p">,</span><span class="mi">6</span><span class="p">,</span><span class="mi">5</span><span class="p">,</span><span class="mi">4</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">4</span><span class="p">,</span><span class="mi">5</span><span class="p">,</span><span class="mi">6</span><span class="p">,</span><span class="mi">6</span><span class="p">,</span><span class="mi">7</span><span class="p">])</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="k">for</span> <span class="n">k</span><span class="p">,</span><span class="n">v</span> <span class="ow">in</span> <span class="n">data</span><span class="o">.</span><span class="n">items</span><span class="p">():</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">&quot;</span> <span class="o">+</span> <span class="n">k</span> <span class="o">+</span> <span class="s2">&quot;</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">v</span><span class="o">.</span><span class="n">head</span><span class="p">())</span>
 </pre></div>
 
     </div>
@@ -1238,30 +1244,407 @@ h6:hover .anchor-link {
 
 <div class="output_area">
 
-    <div class="prompt output_prompt">Out[3]:</div>
+    <div class="prompt"></div>
+
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>
+2010_ap
+
+      DBN                             SchoolName  AP Test Takers   \
+0  01M448           UNIVERSITY NEIGHBORHOOD H.S.             39.0   
+1  01M450                 EAST SIDE COMMUNITY HS             19.0   
+2  01M515                    LOWER EASTSIDE PREP             24.0   
+3  01M539         NEW EXPLORATIONS SCI,TECH,MATH            255.0   
+4  02M296  High School of Hospitality Management              NaN   
+
+   Total Exams Taken  Number of Exams with scores 3 4 or 5  
+0               49.0                                  10.0  
+1               21.0                                   NaN  
+2               26.0                                  24.0  
+3              377.0                                 191.0  
+4                NaN                                   NaN  
+
+class_size
+
+   CSD BOROUGH SCHOOL CODE                SCHOOL NAME GRADE  PROGRAM TYPE  \
+0    1       M        M015  P.S. 015 Roberto Clemente     0K       GEN ED   
+1    1       M        M015  P.S. 015 Roberto Clemente     0K          CTT   
+2    1       M        M015  P.S. 015 Roberto Clemente     01       GEN ED   
+3    1       M        M015  P.S. 015 Roberto Clemente     01          CTT   
+4    1       M        M015  P.S. 015 Roberto Clemente     02       GEN ED   
+
+  CORE SUBJECT (MS CORE and 9-12 ONLY) CORE COURSE (MS CORE and 9-12 ONLY)  \
+0                                    -                                   -   
+1                                    -                                   -   
+2                                    -                                   -   
+3                                    -                                   -   
+4                                    -                                   -   
+
+  SERVICE CATEGORY(K-9* ONLY)  NUMBER OF STUDENTS / SEATS FILLED  \
+0                           -                               19.0   
+1                           -                               21.0   
+2                           -                               17.0   
+3                           -                               17.0   
+4                           -                               15.0   
+
+   NUMBER OF SECTIONS  AVERAGE CLASS SIZE  SIZE OF SMALLEST CLASS  \
+0                 1.0                19.0                    19.0   
+1                 1.0                21.0                    21.0   
+2                 1.0                17.0                    17.0   
+3                 1.0                17.0                    17.0   
+4                 1.0                15.0                    15.0   
+
+   SIZE OF LARGEST CLASS DATA SOURCE  SCHOOLWIDE PUPIL-TEACHER RATIO  
+0                   19.0         ATS                             NaN  
+1                   21.0         ATS                             NaN  
+2                   17.0         ATS                             NaN  
+3                   17.0         ATS                             NaN  
+4                   15.0         ATS                             NaN  
+
+hs_directory
+
+      District  YTD % Attendance (Avg)  YTD Enrollment(Avg)
+0  DISTRICT 01                   91.18                12367
+1  DISTRICT 02                   89.01                60823
+2  DISTRICT 03                   89.28                21962
+3  DISTRICT 04                   91.13                14252
+4  DISTRICT 05                   89.08                13170
+
+demographics
+
+      DBN                       Name  schoolyear fl_percent  frl_percent  \
+0  01M015  P.S. 015 ROBERTO CLEMENTE    20052006       89.4          NaN   
+1  01M015  P.S. 015 ROBERTO CLEMENTE    20062007       89.4          NaN   
+2  01M015  P.S. 015 ROBERTO CLEMENTE    20072008       89.4          NaN   
+3  01M015  P.S. 015 ROBERTO CLEMENTE    20082009       89.4          NaN   
+4  01M015  P.S. 015 ROBERTO CLEMENTE    20092010                    96.5   
+
+   total_enrollment prek   k grade1 grade2    ...     black_num black_per  \
+0               281   15  36     40     33    ...            74      26.3   
+1               243   15  29     39     38    ...            68      28.0   
+2               261   18  43     39     36    ...            77      29.5   
+3               252   17  37     44     32    ...            75      29.8   
+4               208   16  40     28     32    ...            67      32.2   
+
+  hispanic_num hispanic_per white_num white_per male_num male_per female_num  \
+0          189         67.3         5       1.8    158.0     56.2      123.0   
+1          153         63.0         4       1.6    140.0     57.6      103.0   
+2          157         60.2         7       2.7    143.0     54.8      118.0   
+3          149         59.1         7       2.8    149.0     59.1      103.0   
+4          118         56.7         6       2.9    124.0     59.6       84.0   
+
+  female_per  
+0       43.8  
+1       42.4  
+2       45.2  
+3       40.9  
+4       40.4  
+
+[5 rows x 38 columns]
+
+graduation
+
+    Demographic     DBN                            School Name    Cohort  \
+0  Total Cohort  01M292  HENRY STREET SCHOOL FOR INTERNATIONAL      2003   
+1  Total Cohort  01M292  HENRY STREET SCHOOL FOR INTERNATIONAL      2004   
+2  Total Cohort  01M292  HENRY STREET SCHOOL FOR INTERNATIONAL      2005   
+3  Total Cohort  01M292  HENRY STREET SCHOOL FOR INTERNATIONAL      2006   
+4  Total Cohort  01M292  HENRY STREET SCHOOL FOR INTERNATIONAL  2006 Aug   
+
+   Total Cohort Total Grads - n  Total Grads - % of cohort Total Regents - n  \
+0             5               s                        NaN                 s   
+1            55              37                       67.3                17   
+2            64              43                       67.2                27   
+3            78              43                       55.1                36   
+4            78              44                       56.4                37   
+
+   Total Regents - % of cohort  Total Regents - % of grads  \
+0                          NaN                         NaN   
+1                         30.9                        45.9   
+2                         42.2                        62.8   
+3                         46.2                        83.7   
+4                         47.4                        84.1   
+
+             ...            Regents w/o Advanced - n  \
+0            ...                                   s   
+1            ...                                  17   
+2            ...                                  27   
+3            ...                                  36   
+4            ...                                  37   
+
+   Regents w/o Advanced - % of cohort  Regents w/o Advanced - % of grads  \
+0                                 NaN                                NaN   
+1                                30.9                               45.9   
+2                                42.2                               62.8   
+3                                46.2                               83.7   
+4                                47.4                               84.1   
+
+  Local - n  Local - % of cohort  Local - % of grads Still Enrolled - n  \
+0         s                  NaN                 NaN                  s   
+1        20                 36.4                54.1                 15   
+2        16                 25.0                37.2                  9   
+3         7                  9.0                16.3                 16   
+4         7                  9.0                15.9                 15   
+
+   Still Enrolled - % of cohort  Dropped Out - n Dropped Out - % of cohort  
+0                           NaN                s                       NaN  
+1                          27.3                3                       5.5  
+2                          14.1                9                      14.1  
+3                          20.5               11                      14.1  
+4                          19.2               11                      14.1  
+
+[5 rows x 23 columns]
+
+math_test_results
+
+      DBN Grade  Year      Category  Number Tested  Mean Scale Score  \
+0  01M015     3  2006  All Students             39             667.0   
+1  01M015     3  2007  All Students             31             672.0   
+2  01M015     3  2008  All Students             37             668.0   
+3  01M015     3  2009  All Students             33             668.0   
+4  01M015     3  2010  All Students             26             677.0   
+
+   Level 1 #  Level 1 %  Level 2 #  Level 2 %  Level 3 #  Level 3 %  \
+0        2.0        5.1       11.0       28.2       20.0       51.3   
+1        2.0        6.5        3.0        9.7       22.0       71.0   
+2        0.0        0.0        6.0       16.2       29.0       78.4   
+3        0.0        0.0        4.0       12.1       28.0       84.8   
+4        6.0       23.1       12.0       46.2        6.0       23.1   
+
+   Level 4 #  Level 4 %  Level 3+4 #  Level 3+4 %  
+0        6.0       15.4         26.0         66.7  
+1        4.0       12.9         26.0         83.9  
+2        2.0        5.4         31.0         83.8  
+3        1.0        3.0         29.0         87.9  
+4        2.0        7.7          8.0         30.8  
+
+sat_results
+
+      DBN                                    SCHOOL NAME  \
+0  01M292  HENRY STREET SCHOOL FOR INTERNATIONAL STUDIES   
+1  01M448            UNIVERSITY NEIGHBORHOOD HIGH SCHOOL   
+2  01M450                     EAST SIDE COMMUNITY SCHOOL   
+3  01M458                      FORSYTH SATELLITE ACADEMY   
+4  01M509                        MARTA VALLE HIGH SCHOOL   
+
+  Num of SAT Test Takers SAT Critical Reading Avg. Score SAT Math Avg. Score  \
+0                     29                             355                 404   
+1                     91                             383                 423   
+2                     70                             377                 402   
+3                      7                             414                 401   
+4                     44                             390                 433   
+
+  SAT Writing Avg. Score  
+0                    363  
+1                    366  
+2                    370  
+3                    359  
+4                    384  
+</pre>
+</div>
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[4]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">data</span><span class="p">[</span><span class="s2">&quot;demographics&quot;</span><span class="p">][</span><span class="s2">&quot;DBN&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+    <div class="prompt output_prompt">Out[4]:</div>
 
 
 
 
 <div class="output_text output_subarea output_execute_result">
-<pre>(array([ 1.,  3.,  9.,  6.,  7., 11.,  5.,  5.,  4.,  3.]),
- array([0. , 0.9, 1.8, 2.7, 3.6, 4.5, 5.4, 6.3, 7.2, 8.1, 9. ]),
- &lt;a list of 10 Patch objects&gt;)</pre>
+<pre>0    01M015
+1    01M015
+2    01M015
+3    01M015
+4    01M015
+Name: DBN, dtype: object</pre>
 </div>
 
 </div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[5]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">data</span><span class="p">[</span><span class="s2">&quot;class_size&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
 
 <div class="output_area">
 
-    <div class="prompt"></div>
+    <div class="prompt output_prompt">Out[5]:</div>
 
 
 
+<div class="output_html rendered_html output_subarea output_execute_result">
+<div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
 
-<div class="output_png output_subarea ">
-<img src="data:image/png;base64,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
-"
->
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>CSD</th>
+      <th>BOROUGH</th>
+      <th>SCHOOL CODE</th>
+      <th>SCHOOL NAME</th>
+      <th>GRADE</th>
+      <th>PROGRAM TYPE</th>
+      <th>CORE SUBJECT (MS CORE and 9-12 ONLY)</th>
+      <th>CORE COURSE (MS CORE and 9-12 ONLY)</th>
+      <th>SERVICE CATEGORY(K-9* ONLY)</th>
+      <th>NUMBER OF STUDENTS / SEATS FILLED</th>
+      <th>NUMBER OF SECTIONS</th>
+      <th>AVERAGE CLASS SIZE</th>
+      <th>SIZE OF SMALLEST CLASS</th>
+      <th>SIZE OF LARGEST CLASS</th>
+      <th>DATA SOURCE</th>
+      <th>SCHOOLWIDE PUPIL-TEACHER RATIO</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>1</td>
+      <td>M</td>
+      <td>M015</td>
+      <td>P.S. 015 Roberto Clemente</td>
+      <td>0K</td>
+      <td>GEN ED</td>
+      <td>-</td>
+      <td>-</td>
+      <td>-</td>
+      <td>19.0</td>
+      <td>1.0</td>
+      <td>19.0</td>
+      <td>19.0</td>
+      <td>19.0</td>
+      <td>ATS</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>1</td>
+      <td>M</td>
+      <td>M015</td>
+      <td>P.S. 015 Roberto Clemente</td>
+      <td>0K</td>
+      <td>CTT</td>
+      <td>-</td>
+      <td>-</td>
+      <td>-</td>
+      <td>21.0</td>
+      <td>1.0</td>
+      <td>21.0</td>
+      <td>21.0</td>
+      <td>21.0</td>
+      <td>ATS</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>1</td>
+      <td>M</td>
+      <td>M015</td>
+      <td>P.S. 015 Roberto Clemente</td>
+      <td>01</td>
+      <td>GEN ED</td>
+      <td>-</td>
+      <td>-</td>
+      <td>-</td>
+      <td>17.0</td>
+      <td>1.0</td>
+      <td>17.0</td>
+      <td>17.0</td>
+      <td>17.0</td>
+      <td>ATS</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>1</td>
+      <td>M</td>
+      <td>M015</td>
+      <td>P.S. 015 Roberto Clemente</td>
+      <td>01</td>
+      <td>CTT</td>
+      <td>-</td>
+      <td>-</td>
+      <td>-</td>
+      <td>17.0</td>
+      <td>1.0</td>
+      <td>17.0</td>
+      <td>17.0</td>
+      <td>17.0</td>
+      <td>ATS</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>1</td>
+      <td>M</td>
+      <td>M015</td>
+      <td>P.S. 015 Roberto Clemente</td>
+      <td>02</td>
+      <td>GEN ED</td>
+      <td>-</td>
+      <td>-</td>
+      <td>-</td>
+      <td>15.0</td>
+      <td>1.0</td>
+      <td>15.0</td>
+      <td>15.0</td>
+      <td>15.0</td>
+      <td>ATS</td>
+      <td>NaN</td>
+    </tr>
+  </tbody>
+</table>
+</div>
 </div>
 
 </div>
